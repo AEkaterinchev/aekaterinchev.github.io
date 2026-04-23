@@ -674,14 +674,14 @@ a {
 /* блок меню */
 .movie-nav {
     width: 100%;
-    background-color: #f9f9f9;
-    border-top: 1px solid #ecede8;
+    border-bottom: 1px solid #ecede8;
 }
 
 /* внутренняя сетка */
 .movie-nav-inner {
-    width: 1280px;
-    margin: 0 auto;
+    padding: 0 40px;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 /* левая часть */
@@ -699,7 +699,42 @@ a {
     flex: 1;
 }
 
-/* список меню */
+.layout-row {
+    display: flex;
+}
+
+/* внешний контейнер */
+.movie-sections {
+    width: 100%;
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+/* внутренняя сетка */
+.movie-sections-inner {
+    display: flex;
+}
+
+/* левая колонка (sidebar) */
+.sections-left {
+    width: 320px;
+    padding-left: 40px;
+    box-sizing: border-box;
+    border-right: 1px solid #ecede8;
+}
+
+/* правая колонка (основной контент) */
+.sections-right {
+    width: 100%;
+}
+
+.sections-right-wrapper {
+    width: 880px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* меню */
 .nav-list {
     display: flex;
     gap: 16px;
@@ -710,8 +745,32 @@ a {
 
     .nav-list li {
         width: 91px;
-        font-size: 14px;
         text-align: center;
+        font-size: 14px;
+        cursor: pointer;
+    }
+
+        .nav-list li:hover {
+            text-decoration: underline;
+        }
+
+/* статьи */
+.articles {
+    margin-top: 40px;
+}
+
+.nav-list {
+    display: flex;
+    gap: 16px;
+    list-style: none;
+    padding: 16px 0;
+    margin: 0;
+}
+
+    .nav-list li {
+        width: 91px;
+        text-align: center;
+        font-size: 14px;
         cursor: pointer;
     }
 
