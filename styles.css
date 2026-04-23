@@ -1,9 +1,25 @@
+:root {
+    --container: 1280px;
+    --left-col: 360px; /* постер + отступ */
+    --gap: 40px;
+    --right-col: 1fr; /* гибкая правая часть */
+}
+
 body {
     margin: 0;
     padding-top: 64px; /* высота меню */
     background-color: #f4f4f4;
     font-family: Arial, sans-serif;
 }
+
+a {
+    color: #000;
+    text-decoration: underline;
+}
+
+    a:hover {
+        text-decoration: none;
+    }
 
 /* Меню */
 .main-menu {
@@ -385,7 +401,8 @@ a {
 
 /* правая колонка */
 .right-column {
-    flex: 1;
+    width: 100%;
+    position: relative;
 }
 
 /* заголовок фильма */
@@ -580,64 +597,6 @@ a {
     max-width: 100%;
 }
 
-/* нижняя панель */
-.bottom-bar {
-    width: 100%;
-    height: 64px;
-    background-color: #f9f9f9;
-    border-top: 1px solid #ecede8;
-}
-
-/* внутренняя сетка */
-.bottom-inner {
-    width: 1280px;
-    height: 100%;
-    margin: 0 auto;
-    display: flex;
-}
-
-/* левая часть */
-.bottom-left {
-    width: 320px;
-    padding-left: 40px;
-}
-
-/* правая часть */
-.bottom-right {
-    flex: 1;
-    padding-left: 40px;
-}
-
-.bottom-info {
-    display: flex;
-    gap: 16px;
-    margin-top: 16px;
-}
-
-/* колонка */
-.bottom-item {
-    width: 198px;
-}
-
-    /* стиль как у creators */
-    .bottom-item .role {
-        font-size: 12px;
-        color: #888;
-        margin-bottom: 4px;
-    }
-
-    /* значение */
-    .bottom-item .value {
-        font-size: 14px;
-        color: #000;
-    }
-
-.bottom-studios {
-    display: flex;
-    justify-content: center;
-    margin-top: 16px;
-}
-
 /* левая колонка — студии */
 .studios-left {
     width: 200px;
@@ -674,85 +633,55 @@ a {
 /* блок меню */
 .movie-nav {
     width: 100%;
+    background-color: #f9f9f9;
+    border-top: 1px solid #ecede8;
     border-bottom: 1px solid #ecede8;
 }
 
 /* внутренняя сетка */
 .movie-nav-inner {
-    padding: 0 40px;
-    box-sizing: border-box;
-    width: 100%;
-}
-
-/* левая часть */
-.nav-left {
-    width: 320px;
-    padding-left: 40px;
-}
-
-/* правая часть */
-.nav-right {
-    margin-left: 360px;
-    padding-left: 40px;
-    box-sizing: border-box;
-    width: auto;
-    flex: 1;
-}
-
-.layout-row {
+    width: 1280px;
+    margin: 0 auto;
     display: flex;
+    align-items: center;
 }
 
-/* внешний контейнер */
-.movie-sections {
-    width: 100%;
-    padding: 0 40px;
-    box-sizing: border-box;
+.nav-spacer {
+    width: 400px;
+    flex-shrink: 0;
 }
 
-/* внутренняя сетка */
-.movie-sections-inner {
-    display: flex;
-}
+
 
 /* левая колонка (sidebar) */
 .sections-left {
-    width: 320px;
-    padding-left: 40px;
+    width: 360px;
+    flex-shrink: 0;
     box-sizing: border-box;
-    border-right: 1px solid #ecede8;
+}
+
+.layout-row {
+    width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    box-sizing: border-box;
 }
 
 /* правая колонка (основной контент) */
 .sections-right {
-    width: 100%;
+    box-sizing: border-box;
 }
 
 .sections-right-wrapper {
-    width: 880px;
+    width: 920px;
+    max-width: 920px;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    padding: 40px;
+    flex-shrink: 0;
 }
-
-/* меню */
-.nav-list {
-    display: flex;
-    gap: 16px;
-    list-style: none;
-    padding: 16px 0;
-    margin: 0;
-}
-
-    .nav-list li {
-        width: 91px;
-        text-align: center;
-        font-size: 14px;
-        cursor: pointer;
-    }
-
-        .nav-list li:hover {
-            text-decoration: underline;
-        }
 
 /* статьи */
 .articles {
@@ -763,17 +692,122 @@ a {
     display: flex;
     gap: 16px;
     list-style: none;
-    padding: 16px 0;
     margin: 0;
+    padding: 0;
+    height: 40px;
+    align-items: center;
 }
 
     .nav-list li {
         width: 91px;
-        text-align: center;
+        flex: 0 0 91px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         font-size: 14px;
+        height: 40px;
         cursor: pointer;
     }
 
-        .nav-list li:hover {
+            .nav-list li:hover {
+                background-color: #fff;
+            }
+
+            .nav-list li.active {
+                background-color: #fff;
+                font-weight: bold;
+            }
+
+        .facts-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .facts-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .facts-link {
             text-decoration: underline;
+            font-size: 14px;
+        }
+
+            .facts-link:hover {
+                text-decoration: none;
+            }
+
+        .facts-list {
+            display: flex;
+            gap: 16px;
+        }
+
+        .fact-item {
+            width: 412px;
+            height: 160px;
+            padding: 16px;
+            background: #ffffff;
+            border: 1px solid #ecede8;
+            font-size: 14px;
+            line-height: 1.5;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .fact-item::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                height: 40px;
+                background: linear-gradient( to bottom, rgba(255,255,255,0), #ffffff );
+            }
+
+        .similar-movies {
+            margin-bottom: 40px;
+        }
+
+        .similar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .similar-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .similar-link {
+            text-decoration: underline;
+            font-size: 14px;
+        }
+
+            .similar-link:hover {
+                text-decoration: none;
+            }
+
+        .similar-list {
+            display: flex;
+            gap: 16px;
+        }
+
+        .similar-item {
+            width: 198px;
+        }
+
+            .similar-item img {
+                width: 198px;
+                height: 294px;
+                object-fit: cover;
+                display: block;
+            }
+
+        .similar-name {
+            margin-top: 8px;
+            font-size: 14px;
         }
