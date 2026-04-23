@@ -427,7 +427,7 @@ a {
 
 /* Награды */
 .awards-box {
-    width: 120px;
+    width: 91px;
     height: 120px;
     flex-shrink: 0;
 }
@@ -456,7 +456,7 @@ a {
 
 /* создатели */
 .creators {
-    width: 305px;
+    width: 321px;
 }
 
 /* актеры */
@@ -528,12 +528,12 @@ a {
 /* список карточек */
 .actors-list {
     display: flex;
-    gap: 20px;
+    gap: 16px;
 }
 
 /* блок актеров — без отступа слева */
 .actors {
-    width: 535px;
+    width: 519px;
     margin-left: 0;
 }
 
@@ -670,3 +670,51 @@ a {
     display: block;
     cursor: pointer;
 }
+
+/* блок меню */
+.movie-nav {
+    width: 100%;
+    background-color: #f9f9f9;
+    border-top: 1px solid #ecede8;
+}
+
+/* внутренняя сетка */
+.movie-nav-inner {
+    width: 1280px;
+    margin: 0 auto;
+}
+
+/* левая часть */
+.nav-left {
+    width: 320px;
+    padding-left: 40px;
+}
+
+/* правая часть */
+.nav-right {
+    margin-left: 360px;
+    padding-left: 40px;
+    box-sizing: border-box;
+    width: auto;
+    flex: 1;
+}
+
+/* список меню */
+.nav-list {
+    display: flex;
+    gap: 16px;
+    list-style: none;
+    padding: 16px 0;
+    margin: 0;
+}
+
+    .nav-list li {
+        width: 91px;
+        font-size: 14px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+        .nav-list li:hover {
+            text-decoration: underline;
+        }
